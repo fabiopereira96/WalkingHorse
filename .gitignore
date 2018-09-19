@@ -1,0 +1,6 @@
+.metadata
+.settings
+.DS_Store
+.project
+src/*.class
+
