@@ -1,19 +1,21 @@
+package br.com.walkinghorse.java;
+
 import java.util.Random;
 
-/**
- * @author fabiopereira
- *
- */
 public class Horse {
 	
 	private int x;
 	private int y;
+	private int min;
+	private int lengthAvList;
 	private final int [][] avList = {{0,2,1,-1,-2,-2,-1,1,2},
 					  						{0,1,2,2,1,-1,-2,-2,-1}};
 
 	public Horse(){
 		this.x = -1;
 		this.y = -1;
+		this.min = 1;
+		this.lengthAvList = 8; 
 	}
 	public void setPositionX(int x){
 		this.x = x;
@@ -30,11 +32,14 @@ public class Horse {
 	public int getPositionY(){
 		return this.y;
 	}
-	public int getNextPositionX(int bid){
-		return this.x + avList[0][bid];
+	public int getLengthList() {
+		return this.lengthAvList;
 	}
-	public int getNextPositionY(int bid){
-		return this.y + avList[1][bid];
+	public int getNextPositionX(int x, int bid){
+		return x + avList[0][bid];
+	}
+	public int getNextPositionY(int y, int bid){
+		return y + avList[1][bid];
 	}
 
 	public void setRandomPosition(int max){
@@ -46,9 +51,8 @@ public class Horse {
 	}
 
 	private int randomValue(int max){
-		int min = 0;
 		Random rand = new Random();
-		return rand.nextInt((max - min) + 1) + min;
+		return rand.nextInt((max - this.min) + 1) + this.min;
 	}
 	
 }
