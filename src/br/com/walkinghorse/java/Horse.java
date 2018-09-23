@@ -49,7 +49,6 @@ public class Horse {
 		this.setPositionX(rPosition[0]);
 		this.setPositionY(rPosition[1]);
 	}
-
 	private int randomValue(int max){
 		Random rand = new Random();
 		return rand.nextInt((max - this.min) + 1) + this.min;
